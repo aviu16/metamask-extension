@@ -7002,7 +7002,10 @@ export default class MetamaskController extends EventEmitter {
     this.emit('controllerConnectionChanged', this.activeControllerConnections);
 
     // set up postStream transport
-    outStream.on('data', createMetaRPCHandler(api, outStream));
+    outStream.on(
+      'data',
+      createMetaRPCHandler(this.controllerMessenger, outStream),
+    );
 
     const outstreamEndHandler = () => {
       if (!outStream.mmFinished) {
