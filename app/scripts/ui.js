@@ -133,7 +133,11 @@ async function start() {
 
     await initializeUiWithTab(
       activeTab,
-      backgroundConnection,
+      //========
+      // When initializing the UI, all we need is the substream that provides an
+      // interface to the patch store.
+      //========
+      subStreams.patch,
       windowType,
       traceContext,
       initialState,
@@ -236,7 +240,7 @@ async function loadPhishingWarningPage() {
 
 async function initializeUiWithTab(
   tab,
-  connectionStream,
+  patchSubstream,
   windowType,
   traceContext,
   initialState,
@@ -244,7 +248,7 @@ async function initializeUiWithTab(
   try {
     const store = await initializeUi(
       tab,
-      connectionStream,
+      patchSubstream,
       traceContext,
       initialState,
     );
@@ -317,14 +321,14 @@ async function queryCurrentActiveTab(windowType) {
 
 async function initializeUi(
   activeTab,
-  backgroundConnection,
+  patchSubstream,
   traceContext,
   initialState,
 ) {
   return await launchMetaMaskUi({
     activeTab,
     container,
-    backgroundConnection,
+    patchSubstream,
     traceContext,
     initialState,
   });
@@ -342,11 +346,16 @@ function connectSubstreams(connectionStream) {
 
   const controllerSubstream = mx.createStream('controller');
   const providerSubstream = mx.createStream('provider');
+  //========
+  // This is where we create the separate substream for the patch store.
+  //========
+  const patchSubstream = mx.createStream('patch-store');
   mx.ignoreStream('background-liveness');
 
   return {
     controller: controllerSubstream,
     provider: providerSubstream,
+    patch: patchSubstream,
   };
 }
 
