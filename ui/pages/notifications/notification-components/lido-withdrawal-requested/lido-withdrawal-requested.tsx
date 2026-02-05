@@ -20,8 +20,8 @@ import {
   createTextItems,
   getAmount,
   formatIsoDateString,
-  getNetworkDetailsByChainId,
   getUsdAmount,
+  getNetworkDetailsByChainId,
 } from '../../../../helpers/utils/notification.util';
 import { t } from '../../../../../shared/lib/translate';
 import {
