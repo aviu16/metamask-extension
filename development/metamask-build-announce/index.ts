@@ -7,6 +7,7 @@ import {
   buildUserActionsSection,
   extractEntries,
   fetchBenchmarkJson,
+  type BenchmarkEntry,
 } from './utils';
 
 const benchmarkPlatforms = ['chrome', 'firefox'];
@@ -507,10 +508,7 @@ async function start(): Promise<void> {
 async function buildUserActionsBenchmarkComment(
   hostUrl: string,
 ): Promise<string> {
-  const allEntries: Array<{
-    benchmarkName: string;
-    entry: { mean: Record<string, number>; [k: string]: unknown };
-  }> = [];
+  const allEntries: BenchmarkEntry[] = [];
 
   for (const preset of userActionPresets) {
     const data = await fetchBenchmarkJson(
@@ -537,10 +535,7 @@ async function buildUserActionsBenchmarkComment(
 async function buildPerformanceBenchmarkComment(
   hostUrl: string,
 ): Promise<string> {
-  const allEntries: Array<{
-    benchmarkName: string;
-    entry: { mean: Record<string, number>; [k: string]: unknown };
-  }> = [];
+  const allEntries: BenchmarkEntry[] = [];
 
   for (const preset of performancePresets) {
     const data = await fetchBenchmarkJson(

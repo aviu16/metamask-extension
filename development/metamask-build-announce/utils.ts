@@ -23,6 +23,14 @@ export type BenchmarkEntryResult = {
 };
 
 /**
+ * A parsed benchmark entry with its name and result data.
+ */
+export type BenchmarkEntry = {
+  benchmarkName: string;
+  entry: BenchmarkEntryResult;
+};
+
+/**
  * Renders a single HTML table row cell value, rounding numbers or returning '-'.
  *
  * @param stats - The stats record (e.g. entry.stdDev).
@@ -33,7 +41,8 @@ function formatCellValue(
   stats: Record<string, number> | undefined,
   metric: string,
 ): string {
-  return stats?.[metric] != null ? Math.round(stats[metric]).toString() : '-';
+  const value = stats?.[metric];
+  return typeof value === 'number' ? Math.round(value).toString() : '-';
 }
 
 /**
@@ -43,9 +52,7 @@ function formatCellValue(
  * @param entries - Array of benchmark entries with names.
  * @returns Array of HTML table row strings.
  */
-export function buildTableRows(
-  entries: Array<{ benchmarkName: string; entry: BenchmarkEntryResult }>,
-): string[] {
+export function buildTableRows(entries: BenchmarkEntry[]): string[] {
   const tableRows: string[] = [];
 
   for (const { benchmarkName, entry } of entries) {
@@ -92,9 +99,7 @@ function wrapInDetailsTable(
  * @param entries - Parsed benchmark entries.
  * @returns HTML string or empty string if no data.
  */
-export function buildUserActionsSection(
-  entries: Array<{ benchmarkName: string; entry: BenchmarkEntryResult }>,
-): string {
+export function buildUserActionsSection(entries: BenchmarkEntry[]): string {
   if (entries.length === 0) {
     return '';
   }
@@ -113,7 +118,7 @@ export function buildUserActionsSection(
  * @returns HTML string or empty string if no data.
  */
 export function buildPerformanceBenchmarksSection(
-  entries: Array<{ benchmarkName: string; entry: BenchmarkEntryResult }>,
+  entries: BenchmarkEntry[],
 ): string {
   if (entries.length === 0) {
     return '';
@@ -173,7 +178,7 @@ export async function fetchBenchmarkJson(
  */
 export function extractEntries(
   data: Record<string, BenchmarkEntryResult>,
-): Array<{ benchmarkName: string; entry: BenchmarkEntryResult }> {
+): BenchmarkEntry[] {
   return Object.entries(data)
     .filter(([, entry]) => entry.mean && typeof entry.mean === 'object')
     .map(([name, entry]) => ({ benchmarkName: name, entry }));

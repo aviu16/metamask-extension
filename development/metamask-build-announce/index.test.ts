@@ -6,6 +6,8 @@ import {
   type BenchmarkEntryResult,
 } from './utils';
 
+// Timer IDs from benchmark flows use snake_case (e.g. load_new_account, confirm_tx)
+/* eslint-disable @typescript-eslint/naming-convention */
 const mockUserActionsJson: Record<string, BenchmarkEntryResult> = {
   loadNewAccount: {
     testTitle: 'benchmark-user-actions-load-new-account',
@@ -23,6 +25,7 @@ const mockUserActionsJson: Record<string, BenchmarkEntryResult> = {
     p75: { confirm_tx: 3600 },
     p95: { confirm_tx: 3812 },
   },
+  /* eslint-enable @typescript-eslint/naming-convention */
   bridgeUserActions: {
     testTitle: 'benchmark-user-actions-bridge',
     persona: 'standard',
@@ -92,6 +95,7 @@ describe('buildTableRows', () => {
   it('produces one row per metric with correct cell values', () => {
     const entries = extractEntries(mockUserActionsJson);
     const rows = buildTableRows(entries);
+
     expect(rows).toHaveLength(4);
   });
 
@@ -135,7 +139,7 @@ describe('buildTableRows', () => {
     expect(rows[0]).toContain('Bridge User Actions');
     expect(rows[0]).toContain('bridgePageLoad');
     expect(rows[0]).toContain('>200<');
-    expect(rows[0]).toContain('>19<'); // stdDev 18.5 → 19
+    expect(rows[0]).toContain('>19<');
     expect(rows[0]).toContain('>215<');
     expect(rows[0]).toContain('>245<');
 
@@ -187,7 +191,7 @@ describe('buildTableRows', () => {
 
     expect(rows).toHaveLength(1);
     expect(rows[0]).toContain('>100<');
-    const dashes = rows[0].match(/>-</g);
+    const dashes = rows[0].match(/>-</gu);
     expect(dashes).toHaveLength(3);
   });
 });
@@ -241,5 +245,16 @@ describe('buildPerformanceBenchmarksSection', () => {
     expect(html).toContain('<th>Benchmark</th>');
     expect(html).toContain('<th>Metric</th>');
     expect(html).toContain('<th>Mean (ms)</th>');
+  });
+
+  it('includes entries from all presets', () => {
+    const html = buildPerformanceBenchmarksSection(entries);
+
+    expect(html).toContain('Onboarding Import Wallet');
+    expect(html).toContain('Asset Details');
+  });
+
+  it('returns empty string when no data', () => {
+    expect(buildPerformanceBenchmarksSection([])).toBe('');
   });
 });
