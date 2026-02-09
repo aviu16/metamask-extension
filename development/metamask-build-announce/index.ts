@@ -1,11 +1,33 @@
 import startCase from 'lodash/startCase';
-import { version as VERSION } from '../package.json';
-import { getPageLoadBenchmarkComment } from './page-load-benchmark-pr-comment';
-import { postCommentWithMetamaskBot } from './utils/benchmark-utils';
+import { version as VERSION } from '../../package.json';
+import { getPageLoadBenchmarkComment } from '../page-load-benchmark-pr-comment';
+import { postCommentWithMetamaskBot } from '../utils/benchmark-utils';
+import {
+  buildPerformanceBenchmarksSection,
+  buildUserActionsSection,
+  extractEntries,
+  fetchBenchmarkJson,
+} from './utils';
 
 const benchmarkPlatforms = ['chrome', 'firefox'];
 const buildTypes = ['browserify', 'webpack'];
 const pageTypes = ['standardHome', 'powerUserHome'];
+
+/**
+ * Additional benchmark presets auto-discovered from CI (run-benchmarks.yml).
+ * New presets added to CI are automatically rendered if listed here.
+ * Presets that don't have data for a given run are silently skipped.
+ *
+ * User action presets run on all browser/buildType combinations.
+ * Performance presets only run on chrome/browserify.
+ */
+const userActionPresets = ['userActions'];
+const performancePresets = [
+  'performanceOnboardingImport',
+  'performanceOnboardingNew',
+  'performanceAssets',
+  'performanceLogin',
+];
 
 /**
  * The threshold for whether to highlight a change in bundle size, in bytes.
@@ -353,6 +375,34 @@ async function start(): Promise<void> {
     commentBody += pageLoadBenchmarkComment;
   }
 
+  // Add user actions benchmark results (auto-discovered)
+  try {
+    const userActionsBenchmarkComment =
+      await buildUserActionsBenchmarkComment(HOST_URL);
+    if (userActionsBenchmarkComment) {
+      commentBody += userActionsBenchmarkComment;
+    }
+  } catch (error) {
+    console.error(
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `Error constructing user actions benchmark results: '${error}'`,
+    );
+  }
+
+  // Add performance benchmark results (auto-discovered)
+  try {
+    const performanceBenchmarkComment =
+      await buildPerformanceBenchmarkComment(HOST_URL);
+    if (performanceBenchmarkComment) {
+      commentBody += performanceBenchmarkComment;
+    }
+  } catch (error) {
+    console.error(
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `Error constructing performance benchmark results: '${error}'`,
+    );
+  }
+
   try {
     const prBundleSizeStatsResponse = await fetch(bundleSizeStatsUrl);
     if (!prBundleSizeStatsResponse.ok) {
@@ -444,6 +494,67 @@ async function start(): Promise<void> {
     commentToken: PR_COMMENT_TOKEN,
     optionalLog: `Announcement:\n${commentBody}`,
   });
+}
+
+/**
+ * Fetches and renders the User Actions benchmark section.
+ * Auto-discovers available data — rendering adapts to whatever metrics
+ * are present in the JSON.
+ *
+ * @param hostUrl - Base URL for CI artifacts.
+ * @returns HTML string for the collapsible section, or empty string if no data.
+ */
+async function buildUserActionsBenchmarkComment(
+  hostUrl: string,
+): Promise<string> {
+  const allEntries: Array<{
+    benchmarkName: string;
+    entry: { mean: Record<string, number>; [k: string]: unknown };
+  }> = [];
+
+  for (const preset of userActionPresets) {
+    const data = await fetchBenchmarkJson(
+      hostUrl,
+      'chrome',
+      'browserify',
+      preset,
+    );
+    if (data) {
+      allEntries.push(...extractEntries(data));
+    }
+  }
+
+  return buildUserActionsSection(allEntries);
+}
+
+/**
+ * Fetches and renders the Performance Benchmarks section.
+ * Auto-discovers available data for all known performance presets.
+ *
+ * @param hostUrl - Base URL for CI artifacts.
+ * @returns HTML string for the collapsible section, or empty string if no data.
+ */
+async function buildPerformanceBenchmarkComment(
+  hostUrl: string,
+): Promise<string> {
+  const allEntries: Array<{
+    benchmarkName: string;
+    entry: { mean: Record<string, number>; [k: string]: unknown };
+  }> = [];
+
+  for (const preset of performancePresets) {
+    const data = await fetchBenchmarkJson(
+      hostUrl,
+      'chrome',
+      'browserify',
+      preset,
+    );
+    if (data) {
+      allEntries.push(...extractEntries(data));
+    }
+  }
+
+  return buildPerformanceBenchmarksSection(allEntries);
 }
 
 async function runBenchmarkGate(
