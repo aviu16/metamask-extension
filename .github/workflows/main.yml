@@ -75,14 +75,13 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout and setup environment
-        uses: MetaMask/action-checkout-and-setup@prep-deps-speedup
+        uses: MetaMask/action-checkout-and-setup@prep-deps-speedup-test
         id: checkout-and-setup
         with:
           is-high-risk-environment: false
           cache-node-modules: true
           skip-allow-scripts: true
           use-yarn-hydrate: true
-          node-version: v24.13.0
 
       # Need to cache `.metamask` folder for the anvil binary
       - name: Cache .metamask folder
