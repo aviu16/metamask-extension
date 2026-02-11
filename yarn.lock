@@ -7140,9 +7140,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/gator-permissions-controller@npm:^1.0.0, @metamask/gator-permissions-controller@npm:^1.1.2":
+"@metamask/gator-permissions-controller@file:./gator-permissions-controller.tgz::locator=metamask-crx%40workspace%3A.":
   version: 1.1.2
-  resolution: "@metamask/gator-permissions-controller@npm:1.1.2"
+  resolution: "@metamask/gator-permissions-controller@file:./gator-permissions-controller.tgz#./gator-permissions-controller.tgz::hash=f03213&locator=metamask-crx%40workspace%3A."
   dependencies:
     "@metamask/7715-permission-types": "npm:^0.5.0"
     "@metamask/base-controller": "npm:^9.0.0"
@@ -7152,9 +7152,9 @@ __metadata:
     "@metamask/snaps-controllers": "npm:^17.2.0"
     "@metamask/snaps-sdk": "npm:^10.3.0"
     "@metamask/snaps-utils": "npm:^11.7.0"
-    "@metamask/transaction-controller": "npm:^62.11.0"
+    "@metamask/transaction-controller": "npm:^62.16.0"
     "@metamask/utils": "npm:^11.9.0"
-  checksum: 10/cf0f032f272a7633ea9553fcc5176df110676e93d6ab63b7b61564b1d8a05acb57c9daded3d980e391891ab525697dd4bd194763d453c227e3a70d323aa85e9c
+  checksum: 10/7762bbf89adee0c55bb31dc7747bcd0225bb586bde411e5868cc5ede876f49eb707d9a835e248ae6486441770d951887902daa0827140a7ed3179c9d9b181d9e
   languageName: node
   linkType: hard
 
@@ -8983,7 +8983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/transaction-controller@npm:^62.11.0, @metamask/transaction-controller@npm:^62.12.0, @metamask/transaction-controller@npm:^62.14.0, @metamask/transaction-controller@npm:^62.15.0, @metamask/transaction-controller@npm:^62.16.0, @metamask/transaction-controller@npm:^62.4.0, @metamask/transaction-controller@npm:^62.7.0, @metamask/transaction-controller@npm:^62.9.1, @metamask/transaction-controller@npm:^62.9.2":
+"@metamask/transaction-controller@npm:^62.12.0, @metamask/transaction-controller@npm:^62.14.0, @metamask/transaction-controller@npm:^62.15.0, @metamask/transaction-controller@npm:^62.16.0, @metamask/transaction-controller@npm:^62.4.0, @metamask/transaction-controller@npm:^62.7.0, @metamask/transaction-controller@npm:^62.9.1, @metamask/transaction-controller@npm:^62.9.2":
   version: 62.16.0
   resolution: "@metamask/transaction-controller@npm:62.16.0"
   dependencies:
