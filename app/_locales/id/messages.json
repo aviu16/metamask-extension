@@ -7666,9 +7666,6 @@
   "storageErrorAction": {
     "message": "Cadangkan Frasa Pemulihan Rahasia"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "Cadangkan Frasa Pemulihan Rahasia dan instal ulang MetaMask jika masalah berlanjut."
-  },
   "storageErrorTitle": {
     "message": "Kami tidak dapat menyimpan data Anda"
   },

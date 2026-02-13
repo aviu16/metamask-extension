@@ -7666,9 +7666,6 @@
   "storageErrorAction": {
     "message": "备份私钥助记词"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "请备份您的私钥助记词，若问题仍然存在，请重新安装 MetaMask。"
-  },
   "storageErrorTitle": {
     "message": "我们无法保存您的数据"
   },

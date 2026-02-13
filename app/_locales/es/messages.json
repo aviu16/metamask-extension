@@ -7666,9 +7666,6 @@
   "storageErrorAction": {
     "message": "Respalda la frase secreta de recuperación"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "Haz una copia de respaldo de tu frase secreta de recuperación y reinstala MetaMask si el problema continúa."
-  },
   "storageErrorTitle": {
     "message": "No pudimos guardar tus datos"
   },

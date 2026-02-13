@@ -7666,9 +7666,6 @@
   "storageErrorAction": {
     "message": "Sao lưu Cụm từ khôi phục bí mật"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "Sao lưu Cụm từ khôi phục bí mật của bạn và cài đặt lại MetaMask nếu sự cố tiếp diễn."
-  },
   "storageErrorTitle": {
     "message": "Chúng tôi không thể lưu dữ liệu của bạn"
   },

@@ -210,7 +210,7 @@
     "message": "Hesap veya cüzdan ekle"
   },
   "addAcquiredTokens": {
-    "message": "MetaMask kullanarak elde ettiğiniz tokenleri ekleyin"
+    "message": "MetaMask kullanarak elde ettiğiniz tokenları ekleyin"
   },
   "addAlias": {
     "message": "Diğer adı ekle"
@@ -331,7 +331,7 @@
     "message": "Önerilen NFT'leri ekleyin"
   },
   "addSuggestedTokens": {
-    "message": "Önerilen Tokenleri ekle"
+    "message": "Önerilen tokenları ekle"
   },
   "addToken": {
     "message": "Token ekle"
@@ -633,7 +633,7 @@
     "message": "Tüm zamanların en düşüğü"
   },
   "allTokens": {
-    "message": "Tüm tokenler"
+    "message": "Tüm tokenlar"
   },
   "allowAddRpc": {
     "message": "RPC ekle"
@@ -729,7 +729,7 @@
     "message": "Varlıklar"
   },
   "assetsDescription": {
-    "message": "Cüzdanınızdaki token'ler otomatik algılansın, NFT'ler gösterilsin ve toplu hesap bakiye güncellemeleri alınsın"
+    "message": "Cüzdanınızdaki tokenlar otomatik algılansın, NFT'ler gösterilsin ve toplu hesap bakiye güncellemeleri alınsın"
   },
   "attemptToCancelSwapForFree": {
     "message": "Swap işlemini ücretsiz iptal etme girişimi"
@@ -744,10 +744,10 @@
     "message": "Aşağıdaki izinleri verdiniz"
   },
   "autoDetectTokens": {
-    "message": "Token'leri otomatik algıla"
+    "message": "Tokenları otomatik algıla"
   },
   "autoDetectTokensDescription": {
-    "message": "Cüzdanınıza gönderilen yeni tokenleri algılamak ve göstermek için üçüncü taraf API'leri kullanırız. Uygulamanın bu hizmetlerden otomatik olarak veri çekmesini istemiyorsanız kapatın. $1",
+    "message": "Cüzdanınıza gönderilen yeni tokenları algılamak ve göstermek için üçüncü taraf API'leri kullanırız. Uygulamanın bu hizmetlerden otomatik olarak veri çekmesini istemiyorsanız kapatın. $1",
     "description": "$1 is a link to a support article"
   },
   "autoLockTimeLimit": {
@@ -1542,7 +1542,7 @@
     "message": "Bu site bir sözleşme kullanmanızı istiyor"
   },
   "confirmTitleDescERC20ApproveTransaction": {
-    "message": "Bu site tokenlerinizi çekmek için izin istiyor"
+    "message": "Bu site tokenlarınızı çekmek için izin istiyor"
   },
   "confirmTitleDescERC20Revocation": {
     "message": "Bu site, ERC-20 token onaylarınızı iptal etmek için izin istiyor."
@@ -1551,7 +1551,7 @@
     "message": "Bu site token'larınızı harcamak için izin istiyor."
   },
   "confirmTitleDescPermitSignature": {
-    "message": "Bu site token'larınızı harcamak için izin istiyor."
+    "message": "Bu site tokenlarınızı harcamak için izin istiyor."
   },
   "confirmTitleDescSIWESignature": {
     "message": "Bir site, bu hesabın sahibinin siz olduğunuzu kanıtlamak için giriş yapmanızı istiyor."
@@ -1745,7 +1745,7 @@
     "message": "Sözleşme adresi"
   },
   "contractAddressError": {
-    "message": "Token'in sözleşme adresine token gönderiyorsunuz. Bu durum, bu token'lerin kaybedilmesine neden olabilir."
+    "message": "Tokenın sözleşme adresine token gönderiyorsunuz. Bu durum, bu tokenların kaybedilmesine neden olabilir."
   },
   "contractDeployment": {
     "message": "Sözleşme kurulumu"
@@ -1906,7 +1906,7 @@
     "message": "Özel Token"
   },
   "customTokenWarningInTokenDetectionNetwork": {
-    "message": "Mevcut tokenlerin sahteleri de dahil olmak üzere herkes bir token oluşturabilir. $1 hakkında bilgi edinin"
+    "message": "Mevcut tokenların sahteleri de dahil olmak üzere herkes bir token oluşturabilir. $1 hakkında bilgi edinin"
   },
   "customerSupport": {
     "message": "müşteri hizmetleri"
@@ -3083,7 +3083,7 @@
     "description": "$1 is the symbol for a token (e.g. 'DAI')"
   },
   "hideZeroBalanceTokens": {
-    "message": "Bakiyesi olmayan tokenleri gizle"
+    "message": "Bakiyesi olmayan tokenları gizle"
   },
   "high": {
     "message": "Agresif"
@@ -3167,7 +3167,7 @@
     "message": "Tümünü yoksay"
   },
   "ignoreTokenWarning": {
-    "message": "Gizlediğiniz tokenler cüzdanınızda gösterilmez. Ancak, yine de onları bulup ekleyebilirsiniz."
+    "message": "Gizlediğiniz tokenlar cüzdanınızda gösterilmez. Ancak, yine de onları bulup ekleyebilirsiniz."
   },
   "imToken": {
     "message": "imToken"
@@ -3229,22 +3229,22 @@
     "message": "Gizli Kurtarma İfadesini İçe Aktar"
   },
   "importSelectedTokens": {
-    "message": "Seçilen tokenleri içe aktar?"
+    "message": "Seçilen tokenları içe aktar?"
   },
   "importSelectedTokensDescription": {
-    "message": "Sadece seçtiğiniz tokenler cüzdanınızda gösterilecek. Dilediğiniz zaman onları arayarak gizli tokenleri içe aktarabilirsiniz."
+    "message": "Sadece seçtiğiniz tokenlar cüzdanınızda gösterilecek. Dilediğiniz zaman onları arayarak gizli tokenları içe aktarabilirsiniz."
   },
   "importTokenQuestion": {
     "message": "Tokeni içe aktar?"
   },
   "importTokenWarning": {
-    "message": "Herkes, mevcut tokenlerin sahte sürümleri de dahil olmak üzere herhangi bir ada sahip bir token oluşturabilir. Riski tamamen size ait olacak şekikde token ekleyin ve işlem yapın!"
+    "message": "Herkes, mevcut tokenların sahte sürümleri de dahil olmak üzere herhangi bir ada sahip bir token oluşturabilir. Riski tamamen size ait olacak şekikde token ekleyin ve işlem yapın!"
   },
   "importTokensCamelCase": {
-    "message": "Tokenleri içe aktar"
+    "message": "Tokenları içe aktar"
   },
   "importTokensError": {
-    "message": "Tokenleri içe aktaramadık. Lütfen daha sonra tekrar deneyin."
+    "message": "Tokenları içe aktaramadık. Lütfen daha sonra tekrar deneyin."
   },
   "importWalletOrAccountHeader": {
     "message": "Bir cüzdanı veya hesabı içe aktar"
@@ -3387,10 +3387,10 @@
     "message": "IPFS ağ geçidi"
   },
   "ipfsGatewayDescription": {
-    "message": "MetaMask, IPFS'de depolanan NFT'lerinizin görüntülerini göstermek, tarayıcınızın adres çubuğuna girilen ENS adresleri ile ilgili bilgileri göstermek ve farklı tokenlerin simgelerini almak için üçüncü taraf hizmetleri kullanır. Siz bunları kullanırken IP adresiniz bu hizmetlerle paylaşılabilir."
+    "message": "MetaMask, IPFS'de depolanan NFT'lerinizin görüntülerini göstermek, tarayıcınızın adres çubuğuna girilen ENS adresleri ile ilgili bilgileri göstermek ve farklı tokenların simgelerini almak için üçüncü taraf hizmetleri kullanır. Siz bunları kullanırken IP adresiniz bu hizmetlerle paylaşılabilir."
   },
   "ipfsToggleModalDescriptionOne": {
-    "message": "IPFS'de depolanan NFT'lerinizin görüntülerini göstermek, tarayıcınızın adres çubuğuna girilen ENS adresleri ile ilgili bilgileri göstermek ve farklı tokenlerin simgelerini almak için üçüncü taraf hizmetleri kullanırız. Siz bu özellikleri kullanırken IP adresiniz bu hizmetlerle paylaşılabilir."
+    "message": "IPFS'de depolanan NFT'lerinizin görüntülerini göstermek, tarayıcınızın adres çubuğuna girilen ENS adresleri ile ilgili bilgileri göstermek ve farklı tokenların simgelerini almak için üçüncü taraf hizmetleri kullanırız. Siz bu özellikleri kullanırken IP adresiniz bu hizmetlerle paylaşılabilir."
   },
   "ipfsToggleModalDescriptionTwo": {
     "message": "Onayla seçeneği seçildiğinde IPFS çözünürlüğü açılır. Bunu Dilediğiniz zaman $1 alanında kapatabilirsiniz.",
@@ -3437,7 +3437,7 @@
     "message": "Bilinen sözleşme adresi."
   },
   "knownTokenWarning": {
-    "message": "Bu eylem kimlik avı için kullanılabilecek şekilde cüzdanınızda zaten listelenmiş olan tokenleri düzenleyecektir. Sadece bu tokenlerin neyi temsil ettiğini değiştirmek istediğinizden eminseniz onaylayın. $1 hakkında daha fazla bilgi edinin"
+    "message": "Bu eylem kimlik avı için kullanılabilecek şekilde cüzdanınızda zaten listelenmiş olan tokenları düzenleyecektir. Sadece bu tokenların neyi temsil ettiğini değiştirmek istediğinizden eminseniz onaylayın. $1 hakkında daha fazla bilgi edinin"
   },
   "l1Fee": {
     "message": "L1 ücreti"
@@ -3574,7 +3574,7 @@
     "message": "Bu tokeni içe aktarmak ister misiniz?"
   },
   "likeToImportTokens": {
-    "message": "Bu tokenleri içe aktarmak ister misiniz?"
+    "message": "Bu tokenları içe aktarmak ister misiniz?"
   },
   "lineaGoerli": {
     "message": "Linea Goerli test ağı"
@@ -7443,7 +7443,7 @@
     "message": "Bu, NFT'lerinizi çekebilecek adrestir."
   },
   "spenderTooltipERC20ApproveDesc": {
-    "message": "Bu, token'lerinizi sizin adınıza harcayabilecek adrestir."
+    "message": "Bu, tokenlarınızı sizin adınıza harcayabilecek adrestir."
   },
   "spendingCap": {
     "message": "Harcama üst limiti"
@@ -7689,9 +7689,6 @@
   },
   "storageErrorAction": {
     "message": "Gizli Kurtarma İfadesini yedekle"
-  },
-  "storageErrorDescriptionDefault": {
-    "message": "Gizli Kurtarma İfadenizi yedekleyin ve sorun devam ederse MetaMask'i tekrar yükleyin."
   },
   "storageErrorTitle": {
     "message": "Verilerinizi kaydedemedik"
@@ -8236,7 +8233,7 @@
     "message": "Token transferi"
   },
   "tokens": {
-    "message": "Token'lar"
+    "message": "Tokenlar"
   },
   "tokensCount": {
     "message": "token'lar",
@@ -8247,7 +8244,7 @@
     "description": "$1 is the number of new tokens detected"
   },
   "tokensInCollection": {
-    "message": "Koleksiyondaki token'ler"
+    "message": "Koleksiyondaki tokenlar"
   },
   "tooltipSatusConnected": {
     "message": "bağlandı"
@@ -8537,7 +8534,7 @@
     "description": "$1 is a clickable link with text defined by the 'unrecognizedChanLinkText' key. The link will open to instructions for users to validate custom network details."
   },
   "unsendableAsset": {
-    "message": "NFT (ERC-721) tokenlerin gönderilmesi şu anda desteklenmiyor",
+    "message": "NFT (ERC-721) tokenların gönderilmesi şu anda desteklenmiyor",
     "description": "This is an error message we show the user if they attempt to send an NFT asset type, for which currently don't support sending"
   },
   "unstableTokenPriceDescription": {
@@ -8610,7 +8607,7 @@
     "message": "NFT'leri otomatik algıla"
   },
   "useNftDetectionDescriptionText": {
-    "message": "MetaMask'in üçüncü taraf hizmetleri kullanarak size ait olan NFT'leri eklemesine izin verin. NFT'leri otomatik algılama, IP adresinizi ve hesap adresinizi bu hizmetlerle paylaşır. Bu özelliğin etkinleştirilmesi IP adresinizi Ethereum adresinizle ilişkilendirebilir ve dolandırıcılar tarafından airdrop'u gerçekleştirilen sahte NFT'leri gösterebilir. Bu riski önlemek için tokenleri elle ekleyebilirsiniz."
+    "message": "MetaMask'in üçüncü taraf hizmetlerini kullanarak size ait olan NFT'leri eklemesine izin verin. NFT'leri otomatik algılama, IP adresinizi ve hesap adresinizi bu hizmetlerle paylaşır. Bu özelliğin etkinleştirilmesi IP adresinizi Ethereum adresinizle ilişkilendirebilir ve dolandırıcılar tarafından airdrop'u gerçekleştirilen sahte NFT'leri gösterebilir. Bu riski önlemek için tokenları elle ekleyebilirsiniz."
   },
   "usePhishingDetection": {
     "message": "Kimlik avı algılama kullan"
@@ -8635,7 +8632,7 @@
     "message": "Akıllı hesap kullanın"
   },
   "useTokenDetectionPrivacyDesc": {
-    "message": "Hesabına gönderilen token'ların otomatik olarak görüntülenmesi, token'ın görüntülerini almak için üçüncü parti sunucularla iletişimi içerir. Bu servislerin IP adresine erişimi olacaktır."
+    "message": "Hesabına gönderilen tokenların otomatik olarak görüntülenmesi, tokenın görüntülerini almak için üçüncü parti sunucularla iletişimi içerir. Bu servislerin IP adresine erişimi olacaktır."
   },
   "usedByClients": {
     "message": "Çeşitli müşteriler tarafından kullanılıyor"

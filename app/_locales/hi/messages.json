@@ -7666,9 +7666,6 @@
   "storageErrorAction": {
     "message": "सीक्रेट रिकवरी फ्रेज़ का बैकअप लें"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "अपने सीक्रेट रिकवरी फ्रेज़ का बैकअप लें और अगर समस्या बनी रहती है तो MetaMask को फिर से इनस्टॉल करें।"
-  },
   "storageErrorTitle": {
     "message": "हम आपका डेटा सेव नहीं कर सके"
   },

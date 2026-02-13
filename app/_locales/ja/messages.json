@@ -7690,9 +7690,6 @@
   "storageErrorAction": {
     "message": "シークレットリカバリーフレーズをバックアップしてください"
   },
-  "storageErrorDescriptionDefault": {
-    "message": "問題が解決しない場合は、シークレットリカバリーフレーズをバックアップして、MetaMaskを再インストールしてください。"
-  },
   "storageErrorTitle": {
     "message": "データを保存できませんでした"
   },
