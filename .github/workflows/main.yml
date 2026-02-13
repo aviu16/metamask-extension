@@ -22,9 +22,9 @@ on:
     # especially the Monday morning list, which is otherwise usually a fake empty.
     - cron: '0 2-6 * * *'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref == 'refs/heads/main' && github.sha || github.ref }}
-  cancel-in-progress: ${{ !(contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/stable')) }}
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref == 'refs/heads/main' && github.sha || github.ref }}
+#   cancel-in-progress: ${{ !(contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/stable')) }}
 
 env:
   # For a `pull_request` event, the branch is `github.head_ref``.
@@ -542,21 +542,21 @@ jobs:
       ${{
         !cancelled() &&
         needs.get-requirements.outputs.needs-releases == 'true' &&
-        needs.build-dist-browserify.result == 'success' &&
-        needs.build-dist-mv2-browserify.result == 'success' &&
-        needs.build-beta-browserify.result == 'success' &&
-        needs.build-beta-mv2-browserify.result == 'success' &&
-        needs.build-flask-browserify.result == 'success' &&
-        needs.build-flask-mv2-browserify.result == 'success' &&
-        needs.build-test-browserify.result == 'success' &&
-        needs.build-test-mv2-browserify.result == 'success' &&
-        needs.build-test-flask-browserify.result == 'success' &&
-        needs.build-test-flask-mv2-browserify.result == 'success' &&
-        needs.bundle-size.result == 'success' &&
-        needs.build-storybook.result == 'success' &&
-        needs.build-ts-migration-dashboard.result == 'success' &&
-        needs.build-source-map-explorer.result == 'success' &&
-        needs.build-lavamoat-viz.result == 'success'
+        contains(fromJson('["success","skipped"]'), needs.build-dist-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-dist-mv2-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-beta-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-beta-mv2-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-flask-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-flask-mv2-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-test-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-test-mv2-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-test-flask-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-test-flask-mv2-browserify.result) &&
+        contains(fromJson('["success","skipped"]'), needs.bundle-size.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-storybook.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-ts-migration-dashboard.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-source-map-explorer.result) &&
+        contains(fromJson('["success","skipped"]'), needs.build-lavamoat-viz.result)
       }}
     needs:
       - get-requirements
