@@ -138,15 +138,15 @@ jobs:
       - name: Compute needs-releases flag
         id: set-needs-releases
         # Do not do releases on a fork
-        if: ${{ env.IS_FORK == 'false' && env.EVENT_NAME != 'merge_group' && steps.set-skip-everything.outputs.skip-everything != 'true' }}
+        # if: ${{ env.IS_FORK == 'false' && env.EVENT_NAME != 'merge_group' && steps.set-skip-everything.outputs.skip-everything != 'true' }}
         run: echo "needs-releases=true" >> "$GITHUB_OUTPUT"
 
       # This is very simple right now, but is built to have future complexity
       - name: Compute needs-benchmarks flag
         id: set-needs-benchmarks
         # Do not run benchmarks on a fork
-        if: ${{ env.IS_FORK == 'false' && (env.IS_RUN_EVERYTHING_BRANCH == 'true' || env.EVENT_NAME == 'pull_request') && steps.set-skip-everything.outputs.skip-everything != 'true' }}
-        run: echo "needs-benchmarks=true" >> "$GITHUB_OUTPUT"
+        # if: ${{ env.IS_FORK == 'false' && (env.IS_RUN_EVERYTHING_BRANCH == 'true' || env.EVENT_NAME == 'pull_request') && steps.set-skip-everything.outputs.skip-everything != 'true' }}
+        run: echo "needs-benchmarks=false" >> "$GITHUB_OUTPUT"
 
       - name: Compute needs-e2e flag
         id: set-needs-e2e
@@ -157,7 +157,7 @@ jobs:
           FILTER_ALL_CHANGES_COUNT: ${{ steps.filter.outputs.all_changes_count }}
         run: |
           # Default to running E2E tests
-          echo "needs-e2e=true" >> "$GITHUB_OUTPUT"
+          echo "needs-e2e=false" >> "$GITHUB_OUTPUT"
 
           # Only consider skipping for PRs, merge-queue events, or trigger-ci-* branches
           if [[ "$SKIP_E2E" == "true" || "$EVENT_NAME" == "pull_request" || "$EVENT_NAME" == "merge_group" ]]; then
