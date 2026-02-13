@@ -536,25 +536,27 @@ jobs:
 
   publish-prerelease:
     name: Publish prerelease
-    # This job requires an incredibly complicated `if` condition, because we want to meet the following requirements:
-    # - Only run when releases are needed
-    # - Still run when benchmarks are not needed
-    # - Must not run if any `needs` job has failed, been cancelled, timed out, or requires action
+    # All `needs` are required except benchmarks.
+    # Benchmarks remain in `needs` so this job is sequenced after them, but benchmark failure/skip must not block prerelease.
     if: >-
       ${{
         !cancelled() &&
         needs.get-requirements.outputs.needs-releases == 'true' &&
-        !contains(needs.*.result, 'failure') &&
-        !contains(needs.*.result, 'cancelled') &&
-        !contains(needs.*.result, 'timed_out') &&
-        !contains(needs.*.result, 'action_required') &&
-        (
-          needs.get-requirements.outputs.needs-benchmarks != 'true' ||
-          (
-            needs.run-benchmarks.result == 'success' &&
-            needs.page-load-benchmark.result == 'success'
-          )
-        )
+        needs.build-dist-browserify.result == 'success' &&
+        needs.build-dist-mv2-browserify.result == 'success' &&
+        needs.build-beta-browserify.result == 'success' &&
+        needs.build-beta-mv2-browserify.result == 'success' &&
+        needs.build-flask-browserify.result == 'success' &&
+        needs.build-flask-mv2-browserify.result == 'success' &&
+        needs.build-test-browserify.result == 'success' &&
+        needs.build-test-mv2-browserify.result == 'success' &&
+        needs.build-test-flask-browserify.result == 'success' &&
+        needs.build-test-flask-mv2-browserify.result == 'success' &&
+        needs.bundle-size.result == 'success' &&
+        needs.build-storybook.result == 'success' &&
+        needs.build-ts-migration-dashboard.result == 'success' &&
+        needs.build-source-map-explorer.result == 'success' &&
+        needs.build-lavamoat-viz.result == 'success'
       }}
     needs:
       - get-requirements
